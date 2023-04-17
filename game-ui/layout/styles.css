@@ -1,0 +1,209 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #afafaf;
+    color: #fff;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.planet {
+    position: fixed;
+    top: 25%;
+    left: 70%;
+    width: 3%;
+    rotate: 90deg;
+
+}
+
+.spaceship {
+    position: absolute;
+    top: 85%;
+    left: 30%;
+    width: 32%;
+    transform: translate(-50%, -50%);
+    rotate: 50deg;
+}
+
+.stars-left {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    rotate: 7deg;
+    width: 10%;
+}
+
+.stars-right {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    width: 10%;
+    rotate: -5deg;
+}
+
+.status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+    padding-left: 35px;
+}
+
+.text p {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-style: italic;
+    color: white;
+}
+
+.collect, .distance, .fuel {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 80px;
+    cursor: pointer;
+    display: flex;
+}
+
+.collect > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.distance > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.fuel > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.collect-frame, .distance-frame, .fuel-frame {
+    width: 160px;
+    z-index: 2;
+}
+
+.collect-bar, .distance-bar, .fuel-bar {
+    width: 80px;
+    transform: translateX(99%);
+    padding-top: 14px;
+    z-index: 1;
+}
+
+.powerups {
+    position: fixed;
+    top: 33%;
+    right: 0;
+    padding-right: 25px;
+}
+
+.shield, .weapon {
+    position: relative;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin-bottom: 25px;
+
+}
+
+.shield * > {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.weapon * > {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.shield:hover #shield {
+    transform: translateX(-55%);
+    scale: 1.15;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #2497D6;
+}
+
+.weapon:hover #weapon {
+    transform: translateX(-55%);
+    scale: 1.15;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #C8483B;
+}
+
+.map {
+    position: fixed;
+    top: 60%;
+    left: 0;
+    padding-left: 40px;
+    display: flex;
+}
+
+.start, .middle, .end {
+    position: relative;
+    cursor: pointer;
+    width: 125px;
+    height: 125px;
+}
+
+.middle, .end {
+    display: none;
+}
+
+.start:hover {
+    scale: 1.2;
+}
+
+.button_container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    background-color: #5CBC7D;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+a#pause, a#play {
+    position: relative;
+    color: white;
+    font-size: 2.75em;
+    margin: auto;
+}
+
+a#play {
+    display: none;
+}
+
+
+
+
+
+
