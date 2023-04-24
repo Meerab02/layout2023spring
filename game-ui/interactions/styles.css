@@ -1,0 +1,314 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #afafaf;
+    color: #fff;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.planet {
+    position: fixed;
+    top: 25%;
+    left: 70%;
+    width: 3%;
+    rotate: 90deg;
+}
+
+.planet.rotate {
+    animation: rotate 15s linear infinite;
+}
+
+.spaceship {
+    position: absolute;
+    top: 85%;
+    left: 30%;
+    width: 32%;
+    transform: translate(-50%, -50%);
+    rotate: 50deg;
+}
+
+.stars-left {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    rotate: 7deg;
+    width: 10%;
+}
+
+.stars-right {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    width: 10%;
+    rotate: -5deg;
+}
+
+.stars-left.shake {
+    animation: shake 1s linear infinite;
+}
+
+.stars-right.shake {
+    animation: shake 1s linear infinite;
+}
+
+.status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+    padding-left: 35px;
+}
+
+.collect, .distance, .fuel {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 70px;
+    cursor: pointer;
+    display: flex;
+}
+
+.collect > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.distance > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.fuel > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.icon {
+    width: 50px;
+    z-index: 3;
+}
+
+.frame {
+    width: 160px;
+    z-index: 2;
+    padding-left: 37px;
+    margin-top: 7px;
+}
+
+.bar {
+    width: 150px;
+    padding-left: 47px;
+    padding-top: 14px;
+    z-index: 1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+}
+
+/* status bar with high value */
+.bar.high {
+    transform: scaleX(0.93);
+}
+
+/* status bar with med value */
+.bar.med {
+    transform: scaleX(0.58);
+}
+
+/* status bar with low value */
+.bar.low {
+    transform: scaleX(0.33);
+    opacity: 50%;
+}
+
+/* status bar disabled */
+.bar.none {
+    display: none;
+}
+
+/* status bar with changing value */
+.bar.changing {
+    animation: changing 3s infinite ease-in-out;
+}
+
+.powerups {
+    position: fixed;
+    top: 33%;
+    right: 0;
+    padding-right: 25px;
+}
+
+.shield, .weapon {
+    position: relative;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.shield * > {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.weapon * > {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.shield:hover #shield {
+    transform: translateX(-55%);
+    scale: 1.15;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #2497D6;
+}
+
+.weapon:hover #weapon {
+    transform: translateX(-55%);
+    scale: 1.15;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #C8483B;
+}
+
+.maps {
+    position: fixed;
+    top: 60%;
+    left: 0;
+    padding-left: 40px;
+    display: flex;
+}
+
+#start, #middle, #end {
+    cursor: pointer;
+    width: 130px;
+    height: 130px;
+}
+
+#middle {
+    position: absolute;
+    top: 0%;
+    left: 24%;
+}
+
+#start {
+    position: absolute;
+    top: 0%;
+    left: 24%;
+}
+
+.map.progress {
+    animation: progress 2s infinite ease;
+}
+
+.map.hide {
+    display: none;
+}
+
+.map.show {
+    display: block;
+}
+
+.button_container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: #5CBC7D;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+a#pause {
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    margin: auto;
+    right: 28%;
+    top: 17%;
+}
+
+a#play {
+    font-size: 2.75em;
+    position: absolute;
+    color: white;
+    margin: auto;
+    right: 22%;
+    top: 20%;
+    display: none;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(-360deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+@keyframes changing {
+    0% {
+        transform: scaleX(1);
+    }
+    25% {
+        transform: scaleX(0.58);
+    }
+    50% {
+        transform: scaleX(0.33);
+        opacity: 50%;
+    }
+    75% {
+        transform: scaleX(0.58);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes progress {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
