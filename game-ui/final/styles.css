@@ -1,0 +1,584 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #afafaf;
+    color: #fff;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.planet {
+    position: fixed;
+    top: 25%;
+    left: 70%;
+    width: 4%;
+    rotate: 90deg;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.295);
+    ;
+    border-radius: 50%;
+}
+
+.planet.pulse {
+    animation: pulse 2s linear 3;
+}
+
+.control {
+    position: fixed;
+    top: 0;
+    left: 10%;
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+.spaceship {
+    position: relative;
+    margin-top: 0%;
+    left: 30%;
+    width: 32%;
+    transform: translate(50%, 50%);
+    rotate: 50deg;
+}
+
+.alien {
+    position: absolute;
+    margin-top: 30%;
+    left: 17%;
+    width: 28%;
+    z-index: 5;
+    opacity: 90%;
+}
+
+.alien.shake {
+    animation: shake 1s linear infinite;
+}
+
+#message {
+    position: relative;
+    margin-top: 9%;
+    left: 66%;
+    background-color: rgba(14, 10, 59, 0.717);
+    border-radius: 10px;
+    padding: 3px;
+    width: 160px;
+    z-index: 5;
+    opacity: 0;
+}
+
+#message p {
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+}
+
+#message:hover {
+    opacity: 100%;
+    transform: translateY(-50px);
+}
+
+.stars-left {
+    position: relative;
+    margin-top: 0%;
+    left: -6%;
+    rotate: 7deg;
+    width: 12%;
+    padding-bottom: 2%;
+}
+
+.stars-right {
+    position: relative;
+    top: 40%;
+    padding-bottom: 1%;
+    right: -12%;
+    width: 3%;
+    rotate: 60deg;
+    padding-left: 1%;
+}
+
+.spaceship.shake {
+    animation: shake 1s linear infinite;
+}
+
+.status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+    padding-left: 35px;
+}
+
+.collect,
+.distance,
+.fuel {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 70px;
+    cursor: pointer;
+    display: flex;
+}
+
+.distance {
+    margin-top: 150px;
+}
+
+.collect>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.distance>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.fuel>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.icon {
+    width: 50px;
+    z-index: 3;
+}
+
+.frame {
+    width: 160px;
+    z-index: 2;
+    padding-left: 37px;
+    margin-top: 7px;
+}
+
+.bar {
+    width: 150px;
+    padding-left: 47px;
+    padding-top: 14px;
+    z-index: 1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+}
+
+#fuel-bar {
+    width: 144px;
+    padding-top: 14px;
+}
+
+#distance-bar {
+    width: 61px;
+    padding-top: 14px;
+    padding-left: 3px;
+}
+
+.collect {
+    margin-bottom: 90px;
+}
+
+.best {
+    padding-left: 268px;
+    width: 230px;
+    display: flex;
+    color: #FFCC2F;
+
+}
+
+#one {
+    margin-top: 11px;
+    font-size: 17px;
+    opacity: 0.85;
+}
+
+#two {
+    margin-top: 35px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#text {
+    width: 160px;
+    margin-top: 53px;
+    font-size: 16px;
+    padding-left: 40px;
+    opacity: 0;
+}
+
+.fuel.warning #text {
+    animation: appear 15s normal infinite ease-in-out;
+    animation-delay: 5s;
+}
+
+.collect .icon {
+    width: 65px;
+    z-index: 3;
+}
+
+.collect .frame {
+    width: 215px;
+    z-index: 2;
+    padding-left: 37px;
+    margin-top: 7px;
+}
+
+.collect .bar {
+    width: 188px;
+    padding-left: 25px;
+    padding-top: 18px;
+    z-index: 1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+}
+
+/* status bar with high value */
+.bar.high {
+    transform: scaleX(0.93);
+}
+
+/* status bar with med value */
+.bar.med {
+    transform: scaleX(0.58);
+}
+
+/* status bar with low value */
+.bar.low {
+    transform: scaleX(0.4);
+    opacity: 50%;
+}
+
+/* status bar disabled */
+.bar.none {
+    display: none;
+}
+
+/* status bar with changing value */
+.bar.changing {
+    animation: changing 15s normal infinite ease-in-out;
+}
+
+.notes {
+    width: 154px;
+    position: fixed;
+    top: 24%;
+    right: 0;
+    padding-right: 50px;
+    text-align: center;
+}
+
+#first {
+    position: absolute;
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+#second {
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 19%;
+    margin-left: 40%;
+}
+
+.powerup_container {
+    position: fixed;
+    top: 38%;
+    right: 0;
+    padding-right: 60px;
+}
+
+.powerup {
+    position: relative;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin-bottom: 30px;
+    opacity: 0%;
+}
+
+.shield *> {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.weapon *> {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+
+/* powerup - available state */
+.powerup.available {
+    opacity: 100%;
+}
+
+/* powerup - selected state: shield */
+.powerup.shield-selected {
+    opacity: 100%;
+    scale: 1.1;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #2497D6;
+}
+
+/* powerup - active state: shield */
+.powerup.shield-active {
+    opacity: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #2497D6;
+    animation: pulse 1s linear infinite;
+}
+
+/* powerup - selected state: weapon */
+.powerup.weapon-selected {
+    opacity: 100%;
+    scale: 1.1;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #C8483B;
+}
+
+/* powerup - active state: weapon */
+.powerup.weapon-active {
+    opacity: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 8px #C8483B;
+    animation: pulse 1s linear infinite;
+}
+
+/* powerup - unavailable state */
+.powerup.unavailable {
+    opacity: 0%;
+}
+
+.map_container {
+    position: fixed;
+    top: 45%;
+    left: 0%;
+    padding-left: 40px;
+    display: flex;
+}
+
+#start,
+#middle,
+#end {
+    cursor: pointer;
+    width: 130px;
+    height: 130px;
+}
+
+#middle {
+    position: absolute;
+    top: 0%;
+    left: 22%;
+}
+
+#start {
+    position: absolute;
+    top: 0%;
+    left: 22%;
+}
+
+.map_container.loop #start {
+    animation: fade 15s normal infinite ease-in-out;
+}
+
+.map_container.loop #middle {
+    animation: fade 15s normal infinite ease-in-out;
+    animation-delay: 5s;
+}
+
+.map_container.loop #end {
+    animation: fade 15s normal infinite ease-in-out;
+    animation-delay: 10s;
+}
+
+.distance.progress #distance-bar {
+    animation: progress 15s normal infinite ease-in-out;
+}
+
+.button_container {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: #5CBC7D;
+    border-radius: 50%;
+    text-align: center;
+}
+
+a#pause {
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    margin: auto;
+    right: 28%;
+    top: 17%;
+    display: none;
+}
+
+a#play {
+    font-size: 2.75em;
+    position: absolute;
+    color: white;
+    margin: auto;
+    right: 22%;
+    top: 20%;
+}
+
+.button_container.playing #pause {
+    display: block;
+}
+
+.button_container.playing #play {
+    display: none;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    27% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+        ;
+    }
+
+    100% {
+        opacity: 0;
+        ;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(-360deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes changing {
+    0% {
+        transform: scaleX(0.9);
+    }
+
+    25% {
+        transform: scaleX(0.58);
+    }
+
+    50% {
+        transform: scaleX(0.33);
+        opacity: 50%;
+    }
+
+    75% {
+        transform: scaleX(0.58);
+    }
+
+    100% {
+        transform: scaleX(0.9);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes progress {
+    0% {
+        transform: scaleX(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleX(1.8);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: scaleX(3);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.1);
+    }
+
+    50% {
+
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
